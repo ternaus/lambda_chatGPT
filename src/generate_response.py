@@ -1,7 +1,7 @@
 import os
-import ujson as json
-import httpx
 
+import httpx
+import ujson as json
 from dotenv import load_dotenv
 
 load_dotenv()  # take environment variables from .env.

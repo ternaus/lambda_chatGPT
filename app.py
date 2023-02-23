@@ -1,6 +1,4 @@
 import ujson as json
-import os
-
 from dotenv import load_dotenv
 
 from src.generate_response import get_reply
