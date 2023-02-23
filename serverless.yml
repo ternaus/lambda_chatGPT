@@ -36,7 +36,7 @@ provider:
 
 
 functions:
-  ternaus-get-liked:
+  chrome-extension-chatGPT:
     handler: app.lambda_handler
     warmup:
       default:
