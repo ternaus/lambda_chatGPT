@@ -1,0 +1,50 @@
+org: ternaus
+app: aws-python-http-api-project
+service: chrome_extension_chatGPT
+frameworkVersion: '3'
+
+plugins:
+  - serverless-plugin-warmup
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    dockerizePip: true
+  warmup:
+    default:
+      enabled: true
+      memorySize: 128
+      role: IamRoleLambdaExecution
+
+provider:
+  name: aws
+  runtime: python3.9
+  memorySize: 128
+  timeout: 30
+  iam:
+    role:
+      statements:
+        - Effect: 'Allow'
+          Action:
+            - 'lambda:InvokeFunction'
+            - events:PutRole
+          Resource:
+            - "*"
+  apiGateway:
+    apiKeys:
+      - chrome-extension-chatGPT-api-key
+
+
+functions:
+  ternaus-get-liked:
+    handler: app.lambda_handler
+    warmup:
+      default:
+        enabled: true
+    events:
+      - http:
+          path: /
+          method: post
+          cors: true
+          private: true
+    timeout: 30
