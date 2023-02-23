@@ -1,6 +1,6 @@
 org: ternaus
 app: aws-python-http-api-project
-service: chrome_extension_chatGPT
+service: chrome-extension-chatGPT
 frameworkVersion: '3'
 
 plugins:
