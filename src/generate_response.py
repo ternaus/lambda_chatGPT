@@ -1,6 +1,7 @@
 import os
 
 import httpx
+import openai
 import ujson as json
 from dotenv import load_dotenv
 
@@ -15,10 +16,16 @@ headers = {
 
 
 def get_reply(text: str) -> str:
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "user", "content": text},
+        ],
+    )
     response = httpx.post(
         "https://api.openai.com/v1/completions",
         headers=headers,
         data=json.dumps({"model": "gpt-3.5-turbo", "prompt": text, "temperature": 0, "max_tokens": 3900}),
     )
 
-    return response.json()["choices"][0]["text"]
+    return response.choices[0].message.content

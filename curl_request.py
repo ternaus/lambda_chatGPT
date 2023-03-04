@@ -17,7 +17,7 @@ logging.basicConfig(
 
 load_dotenv()  # take environment variables from .env.
 
-headers = {"content-type": "application/json", "x-api-key": "0Xm4ZJBA4D2DQi763h46S5CmhtfLn6yma3VKRYKQ"}
+headers = {"content-type": "application/json", "x-api-key": "0Xm4ZJBA4D2DQi763h46S5CmhtfLn6yma3VKRYK"}
 
 URL = "https://2pr6s20k4b.execute-api.us-east-1.amazonaws.com/dev/"
 
