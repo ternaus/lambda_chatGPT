@@ -16,6 +16,12 @@ custom:
       memorySize: 128
       role: IamRoleLambdaExecution
 
+package:
+    include:
+      - src/**
+      - app.py
+      - requirements.txt
+
 provider:
   name: aws
   runtime: python3.9

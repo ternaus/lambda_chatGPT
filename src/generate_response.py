@@ -15,17 +15,10 @@ headers = {
 
 
 def get_reply(text: str) -> str:
-    request_text = f"""
-    Generate a reply for a given email:
-
-    ---
-    {text}
-    """
-
     response = httpx.post(
         "https://api.openai.com/v1/completions",
         headers=headers,
-        data=json.dumps({"model": "text-davinci-003", "prompt": request_text, "temperature": 0, "max_tokens": 3900}),
+        data=json.dumps({"model": "gpt-3.5-turbo", "prompt": text, "temperature": 0, "max_tokens": 3900}),
     )
 
     return response.json()["choices"][0]["text"]
