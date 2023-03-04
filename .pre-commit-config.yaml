@@ -16,12 +16,12 @@ repos:
     hooks:
       - id: black
   - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: c9e6ab0c7a6196dabae8893ba4c454ce4f3da660
+    rev: v0.0.253
     hooks:
       - id: ruff
         exclude: ^tests/
   - repo: https://github.com/abravalheri/validate-pyproject
-    rev: e22efabdc7203a4a6388231f8052c296cbb6eb8d
+    rev: v0.12.1
     hooks:
       - id: validate-pyproject
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -50,7 +50,7 @@ repos:
       - id: trailing-whitespace
       - id: requirements-txt-fixer
   - repo: https://github.com/pre-commit/pygrep-hooks
-    rev: v1.9.0
+    rev: v1.10.0
     hooks:
       - id: python-check-mock-methods
       - id: python-use-type-annotations
