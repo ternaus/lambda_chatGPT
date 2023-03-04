@@ -17,7 +17,7 @@ logging.basicConfig(
 
 load_dotenv()  # take environment variables from .env.
 
-headers = {"content-type": "application/json", "x-api-key": "0Xm4ZJBA4D2DQi763h46S5CmhtfLn6yma3VKRYK"}
+headers = {"content-type": "application/json", "x-api-key": "0Xm4ZJBA4D2DQi763h46S5CmhtfLn6yma3VKRYKQ"}
 
 URL = "https://2pr6s20k4b.execute-api.us-east-1.amazonaws.com/dev/"
 
@@ -29,7 +29,7 @@ I can offer you the advanced tier of this project if you have the budget for thi
 
 
 request_text = f"""
-Respond to the most recent email in a comprehensive and professional tone and sign off with my name at the end
+I got the following email. Write a reponse in a comprehensive and professional tone and sign off with my name at the end
 
 ---
 
@@ -39,10 +39,12 @@ Respond to the most recent email in a comprehensive and professional tone and si
 
 async def request():
     async with httpx.AsyncClient(headers=headers, timeout=60000000000) as client:
-        result = await client.post(URL, data=json.dumps({"action": "reply", "text": input_email}))
+        result = await client.post(URL, data=json.dumps({"action": "reply", "text": request_text}))
         print(result.headers)
         return result.json()
 
 
 result = asyncio.run(request())
 logging.info(result)
+
+print(result["response"])
