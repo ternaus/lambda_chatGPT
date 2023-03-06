@@ -30,7 +30,7 @@ def lambda_handler(event, context=None):
     if action == "reply":
         response = get_reply(body["text"])
         distinct_id = body.get("metadata", {}).get("distinct_id", "unknown")
-        mp.track(distinct_id, {"action": "reply", **body.get("metadata", {})})
+        mp.track(distinct_id, "reply", body.get("metadata", {}))
 
     return {
         "statusCode": 200,
